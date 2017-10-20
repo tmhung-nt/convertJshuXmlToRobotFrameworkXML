@@ -1,0 +1,97 @@
+<testsuite failures="1" errors="0" tests="4" skipped="0" name="T1_PRI_FW_PhoneNumber.MainScript_full" time="102.195497504">
+
+    <testcase assertions="1" name="getConfigTest" time=".002749502" starttime="1508477968.628961015" endtime="1508477968.631710517">
+    <failure type="failure" message="Test failure"></failure>
+    <system-out>
+<![CDATA[
+ORACLE_SID : XE_172.17.109.192
+/opt/jenkins/workspace/T1_PRI_FW_PhoneNumber/etm/functional/multi_cnf.inc
+----------------
+    	External_SERVER1=172.17.96.129
+        Internal_SERVER1=172.17.103.248
+        External_SERVER2=null
+        Internal_SERVER2=null
+        DB_SERVER=172.17.109.192
+        MS_SERVER=172.17.100.13
+        APPL_SERVER1=172.17.98.171
+        APPL_SERVER2=10.1.50.254
+]]>
+    </system-out>
+    </testcase>
+  
+
+    <testcase assertions="1" name="checkServiceStatusTest" time=".268926582" starttime="1508477968.642294954" endtime="1508477968.911221536">
+    
+    <system-out>
+<![CDATA[
+Checking Datbase Server :
+DB oracle Server 172.17.109.192 is available now
+ETMMS SERVER 172.17.100.13 is available
+ETMRS SERVER 172.17.100.13 is  available
+]]>
+    </system-out>
+    </testcase>
+  
+
+    <testcase assertions="1" name="pushRobotFileToWindowSlaveTest" time=".005303743" starttime="1508477968.920414085" endtime="1508477968.925717828">
+    
+    <system-out>
+<![CDATA[
+Transfering robot file to Windows Slave machine
+]]>
+    </system-out>
+    </testcase>
+  
+
+    <testcase assertions="1" name="T1_PRI_FW_PN_01" time="101.918517677" starttime="1508477972.054246215" endtime="1508478073.972763892">
+    <failure type="failure" message="Test failure"></failure>
+    <system-out>
+<![CDATA[
+tccommand=/opt/jenkins/workspace/T1_PRI_FW_PhoneNumber/perf/qatests/jobtrigger 40
+Call Jenkins job to run ...
++ curl -X POST 'http://maat:8081/view/ETM%20Auto-TMA/job/Test%20Window%20Server%20Slave/build?token=LRW6ErXDYA'
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
++ sleep 60
++ sleep 40
++ set +x
+=====> Jenkins job done <======
+
+Starting verify DB records with MS time:  Fri Oct 20 05:41:12 UTC 2017
+CALL_OID: 7789079113102374004245215857082381
+Actual Call Count [1]
+Expected Call Count [1] ==> Matched
+Actual Calling Number [12105440402]
+Expected Calling Number [12105440402] ==> Matched
+Actual Called Number [12105559012]
+Expected Called Number [12105559012] ==> Matched
+Actual Direction [Outbound]
+Expected Direction [Outbound] ==> Matched
+Actual Disposition [Allowed]
+Expected Disposition [Allowed] ==> Matched
+rulenum: 9999
+Actual Rule Number [9999]
+Expected Rule Number [9999] ==> Matched
+Actual Policy Name [FreeTest]
+Expected Policy Name [Default] ==> Not Matched
+Actual CallType [4]
+Expected CallType [Voice]:[4] ==> Matched
+Actual Call Details [LOC]
+Expected Call Details [LOC] ==> Matched
+Actual Duration [34]
+Expected Duration [33(+/-5)] ==> Matched
+Actual Caller ID []
+Expected Caller ID [] ==> Matched
+Actual DestinationDetails[PN]
+Expected DestinationDetails [PN] ==> Matched
+Actual SourceDetails[PN]
+Expected SourceDetails [PN] ===> Matched
+Actual tracks [0]
+Expected tracks [0] ==> Matched
+ 
+]]>
+    </system-out>
+    </testcase>
+  
+</testsuite>
