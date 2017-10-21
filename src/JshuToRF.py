@@ -28,24 +28,24 @@ class JshuToRF(object):
         _tc_list = _ts_object.get_testcase_list()
 
         #get suite start time and end time
-        _suite_starttime = _tc_list[0][1]
-        _suite_endtime   = _tc_list[-1][2]
+        _suite_starttime = _tc_list[0]._start_time
+        _suite_endtime   = _tc_list[-1]._end_time
 
         # inital xml root of RobotFramework output.xml
         root = ET.Element("robot", generator="Robot Framwork", generated="")
         suite = ET.SubElement(root, "suite", id="RobotFramework Output XML", name=self._job_name, source="Something")
 
         for _tc in _tc_list:
-            # @TODO: try add testcase class so we can get testcase's attributes in a implicit way
-            test = ET.SubElement(suite, "test", id=_tc[0], name=_tc[0])
+            test = ET.SubElement(suite, "test", id=_tc._name, name=_tc._name)
             kw = ET.SubElement(test, "kw", name="LOG FROM JSHU", library="BuiltIn")
             doc = ET.SubElement(kw, "doc").text = "Logs the given message with the given level."
-            msg = ET.SubElement(kw, "msg", timestamp="20171017 14:49:30.312", level="INFO").text = _tc[-1]
+            msg = ET.SubElement(kw, "msg", timestamp="20171017 14:49:30.312", level="INFO").text = _tc._log
 
-            kw_status = ET.SubElement(kw, "status", status=_tc[-2], starttime=_tc[1], endtime=_tc[2])
-            test_status = ET.SubElement(test, "status", status=_tc[-2], starttime=_tc[1], endtime=_tc[2], critical="yes")
+            kw_status = ET.SubElement(kw, "status", status=_tc._status, starttime=_tc._start_time, endtime=_tc._end_time)
+            test_status = ET.SubElement(test, "status", status=_tc._status,
+                                        starttime=_tc._start_time, endtime=_tc._end_time, critical="yes")
 
-        suite_status = ET.SubElement(suite, "status", status=_tc[-2], starttime=_suite_starttime,
+        suite_status = ET.SubElement(suite, "status", status=_tc._status, starttime=_suite_starttime,
                                endtime=_suite_endtime)
 
         statistics = ET.SubElement(root, "statistics")

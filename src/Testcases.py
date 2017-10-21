@@ -8,6 +8,18 @@ Created on Oct 21, 2017
 import xml.etree.cElementTree as ET
 import datetime
 
+class Testcase(object):
+    """
+    This object contains all attribute of a testcase
+    """
+    def __init__(self, _tc_name=None, _tc_start_time=None,
+                 _tc_end_time=None, _tc_status=None, _tc_log=None):
+        self._name = _tc_name
+        self._start_time = _tc_start_time
+        self._end_time = _tc_end_time
+        self._status = _tc_status
+        self._log = _tc_log
+
 class Testcases(object):
     """
     Testcases object contains info of all testcases in Jshu xml file.
@@ -23,6 +35,7 @@ class Testcases(object):
         self._testcase_list = []
         self._xml_tree = None
         self._xml_root = None
+
 
 
     def extract_testcase_list_from_xml(self):
@@ -43,8 +56,11 @@ class Testcases(object):
             _tc_status = self.get_testcase_status(_tc_locator)
             _tc_log = self.get_testcase_log(_tc_locator)
             # add testcase to testcase_list
-            _tc_info = [ _tc_name, _tc_start_time, _tc_end_time, _tc_status, _tc_log ]
-            self._testcase_list.append(_tc_info)
+
+            _testcase = Testcase(_tc_name, _tc_start_time, _tc_end_time, _tc_status, _tc_log)
+            self._testcase_list.append(_testcase)
+
+
 
     def _get_total_testcases(self):
         """
@@ -113,12 +129,13 @@ class Testcases(object):
         _iter = 1
         for _testcase in self._testcase_list:
             print "Testcase %d:" % (_iter)
-            print "\tName: %s" % (_testcase[0])
-            print "\tStar time: %s" % (_testcase[1])
-            print "\tEnd time: %s" % (_testcase[2])
-            print "\tStatus: %s" % (_testcase[3])
+            print "\tName: %s" % (_testcase._name)
+
+            print "\tStar time: %s" % (_testcase._start_time)
+            print "\tEnd time: %s" % (_testcase._end_time)
+            print "\tStatus: %s" % (_testcase._status)
             if _print_log:
-                print "\tLog: %s" % (_testcase[4])
+                print "\tLog: %s" % (_testcase._log)
             _iter += 1
 
 #
