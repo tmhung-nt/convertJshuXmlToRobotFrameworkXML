@@ -24,6 +24,7 @@ ORACLE_SID : XE_172.17.109.192
 
     <testcase assertions="1" name="checkServiceStatusTest" time="30.280331139" starttime="1508490873.133621975"
               endtime="1508490903.413953114">
+        <failure type="failure" message="Test failure"></failure>
 
         <system-out>
             <![CDATA[

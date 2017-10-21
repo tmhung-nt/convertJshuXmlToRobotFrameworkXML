@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20171021 11:30:32.513" generator="Rebot 3.0.2 (Python 2.7.13 on win32)">
+<suite source="Something" id="s1" name="Dummy Job Name">
+<test id="s1-t1" name="getConfigTest">
+<kw name="LOG FROM JSHU" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20171017 14:49:30.312" level="INFO">
+            
+ORACLE_SID : XE_172.17.109.192
+/opt/jenkins/workspace/T1_PRI_FW_PhoneNumber/etm/functional/multi_cnf.inc
+----------------
+    	External_SERVER1=172.17.96.129
+        Internal_SERVER1=172.17.103.248
+        External_SERVER2=null
+        Internal_SERVER2=null
+        DB_SERVER=172.17.109.192
+        MS_SERVER=172.17.100.13
+        APPL_SERVER1=172.17.98.171
+        APPL_SERVER2=10.1.50.254
+
+        </msg>
+<status status="PASS" endtime="20171020 16:14:33.124940" starttime="20171020 16:14:03.121191"></status>
+</kw>
+<status status="PASS" endtime="20171020 16:14:33.124940" critical="yes" starttime="20171020 16:14:03.121191"></status>
+</test>
+<test id="s1-t2" name="checkServiceStatusTest">
+<kw name="LOG FROM JSHU" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20171017 14:49:30.312" level="INFO">
+            
+Checking Datbase Server :
+DB oracle Server 172.17.109.192 is available now
+ETMMS SERVER 172.17.100.13 is available
+ETMRS SERVER 172.17.100.13 is  available
+
+        </msg>
+<status status="FAIL" endtime="20171020 16:15:03.413953" starttime="20171020 16:14:33.133622"></status>
+</kw>
+<status status="FAIL" endtime="20171020 16:15:03.413953" critical="yes" starttime="20171020 16:14:33.133622"></status>
+</test>
+<test id="s1-t3" name="pushRobotFileToWindowSlaveTest">
+<kw name="LOG FROM JSHU" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20171017 14:49:30.312" level="INFO">
+            
+Transfering robot file to Windows Slave machine
+
+        </msg>
+<status status="PASS" endtime="20171020 16:15:33.429208" starttime="20171020 16:15:03.422536"></status>
+</kw>
+<status status="PASS" endtime="20171020 16:15:33.429208" critical="yes" starttime="20171020 16:15:03.422536"></status>
+</test>
+<test id="s1-t4" name="T1_PRI_FW_PN_01">
+<kw name="LOG FROM JSHU" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20171017 14:49:30.312" level="INFO">
+            
+tccommand=/opt/jenkins/workspace/T1_PRI_FW_PhoneNumber/perf/qatests/jobtrigger 40
+Call Jenkins job to run ...
++ curl -X POST 'http://maat:8081/view/ETM%20Auto-TMA/job/Test%20Window%20Server%20Slave/build?token=LRW6ErXDYA'
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
++ sleep 60
++ sleep 40
++ set +x
+=====&gt; Jenkins job done &lt;======
+
+Starting verify DB records with MS time:  Fri Oct 20 09:17:17 UTC 2017
+CALL_OID: 7789079113102374004245233036951552
+Actual Call Count [1]
+Expected Call Count [1] ==&gt; Matched
+Actual Calling Number [12105440402]
+Expected Calling Number [12105440402] ==&gt; Matched
+Actual Called Number [12105559012]
+Expected Called Number [12105559012] ==&gt; Matched
+Actual Direction [Outbound]
+Expected Direction [Outbound] ==&gt; Matched
+Actual Disposition [Allowed]
+Expected Disposition [Allowed] ==&gt; Matched
+rulenum: 9999
+Actual Rule Number [9999]
+Expected Rule Number [9999] ==&gt; Matched
+Actual Policy Name [FreeTest]
+Expected Policy Name [FreeTest] ==&gt; Matched
+Actual CallType [4]
+Expected CallType [Voice]:[4] ==&gt; Matched
+Actual Call Details [LOC]
+Expected Call Details [LOC] ==&gt; Matched
+Actual Duration [34]
+Expected Duration [33(+/-5)] ==&gt; Matched
+Actual Caller ID []
+Expected Caller ID [] ==&gt; Matched
+Actual DestinationDetails[PN]
+Expected DestinationDetails [PN] ==&gt; Matched
+Actual SourceDetails[PN]
+Expected SourceDetails [PN] ===&gt; Matched
+Actual tracks [0]
+Expected tracks [0] ==&gt; Matched
+ 
+
+        </msg>
+<status status="PASS" endtime="20171020 16:17:18.741296" starttime="20171020 16:15:36.797951"></status>
+</kw>
+<status status="PASS" endtime="20171020 16:17:18.741296" critical="yes" starttime="20171020 16:15:36.797951"></status>
+</test>
+<status status="FAIL" endtime="20171020 16:17:18.741296" starttime="20171020 16:14:03.121191"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="3">Critical Tests</stat>
+<stat fail="1" pass="3">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Dummy Job Name" pass="3">Dummy Job Name</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
