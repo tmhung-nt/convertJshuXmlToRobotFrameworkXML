@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20171021 11:30:32.513" generator="Rebot 3.0.2 (Python 2.7.13 on win32)">
+<robot generated="20171021 14:29:48.096" generator="Rebot 3.0.2 (Python 2.7.13 on win32)">
 <suite source="Something" id="s1" name="Dummy Job Name">
 <test id="s1-t1" name="getConfigTest">
 <kw name="LOG FROM JSHU" library="BuiltIn">

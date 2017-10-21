@@ -7,20 +7,10 @@ Created on Oct 21, 2017
 
 import xml.etree.cElementTree as ET
 import datetime
+from Testcase import Testcase
 
-class Testcase(object):
-    """
-    This object contains all attribute of a testcase
-    """
-    def __init__(self, _tc_name=None, _tc_start_time=None,
-                 _tc_end_time=None, _tc_status=None, _tc_log=None):
-        self._name = _tc_name
-        self._start_time = _tc_start_time
-        self._end_time = _tc_end_time
-        self._status = _tc_status
-        self._log = _tc_log
 
-class Testcases(object):
+class TestSuite(object):
     """
     Testcases object contains info of all testcases in Jshu xml file.
     Each testcase has following attributes:
@@ -45,7 +35,7 @@ class Testcases(object):
         """
         self._xml_tree = ET.ElementTree(file=self._jshu_xml_file)
         self._xml_root = self._xml_tree.getroot()
-        number_of_tags = self._get_total_testcases()
+        number_of_tags = self.get_total_testcases()
         for i in range(0, number_of_tags):
             # get attributes of each testcase
             _tc_name = (self._xml_root[i].attrib)['name']
@@ -60,9 +50,7 @@ class Testcases(object):
             _testcase = Testcase(_tc_name, _tc_start_time, _tc_end_time, _tc_status, _tc_log)
             self._testcase_list.append(_testcase)
 
-
-
-    def _get_total_testcases(self):
+    def get_total_testcases(self):
         """
         get the total number of testcases in jshu xml files
         :return:

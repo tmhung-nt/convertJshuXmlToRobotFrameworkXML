@@ -6,7 +6,7 @@ Created on Oct 21, 2017
 '''
 
 import xml.etree.cElementTree as ET
-from Testcases import Testcases
+from TestSuite import TestSuite
 import os
 
 class JshuToRF(object):
@@ -23,7 +23,7 @@ class JshuToRF(object):
 
     def create_xml_file_report(self):
         # extract testcase information from Jshu xml suite
-        _ts_object = Testcases(self._input_jshu_xml_file)
+        _ts_object = TestSuite(self._input_jshu_xml_file)
         _ts_object.extract_testcase_list_from_xml()
         _tc_list = _ts_object.get_testcase_list()
 
